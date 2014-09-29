@@ -28,11 +28,6 @@ public class EventsResource {
 
     @GET @Timed
     public List<Event> listEvents(@QueryParam("groupName") String groupName) {
-        return httpClient.resource(meetupConfig.getHost() + EVENTS_PATH)
-                .queryParam("key", meetupConfig.getKey())
-                .queryParam("group_urlname", groupName)
-                .queryParam("status", "past,upcoming")
-                .get(new GenericType<ListResponse<Event>>() {})
-                .getResults();
+        // TODO: Call Meetup API!
     }
 }

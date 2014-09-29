@@ -39,16 +39,6 @@ public class EventRatingsResource {
                 .queryParam("groupName", groupName)
                 .get(new GenericType<List<RatedEvent>>() {});
 
-        return from(events).transform(new Function<RatedEvent, RatedEvent>(){
-            public RatedEvent apply(RatedEvent input) {
-                List<Rating> ratings = httpClient.resource(meetupConfig.getHost() + EVENT_RATINGS_URL)
-                        .queryParam("key", meetupConfig.getKey())
-                        .queryParam("event_id", input.getId())
-                        .get(new GenericType<ListResponse<Rating>>() {})
-                        .getResults();
-                input.setRatings(ratings);
-                return input;
-            }
-        }).toList();
+        // TODO: Enrich events with ratings with all to Meetup API
     }
 }
