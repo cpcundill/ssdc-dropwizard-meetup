@@ -1,0 +1,13 @@
+server:
+    applicationConnectors:
+        - type: http
+          port: 8180
+
+    adminConnectors:
+        - type: http
+          port: 8181
+
+meetup:
+    # Provided at runtime
+    key: 123
+    host: http://api.meetup.com

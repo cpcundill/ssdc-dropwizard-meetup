@@ -1,0 +1,17 @@
+server:
+    applicationConnectors:
+        - type: http
+          port: 8280
+
+    adminConnectors:
+        - type: http
+          port: 8281
+
+
+meetup:
+    # Provided at runtime
+    key: 123
+    host: http://api.meetup.com
+
+eventsUrl: http://localhost:8180/events
+eventsHealthUrl: http://localhost:8181/healthcheck
